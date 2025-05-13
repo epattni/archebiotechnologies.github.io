@@ -7,188 +7,141 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy: #002147;
-      --navy-deep: #001024;
-      --royal: #4169e1;
+      --navy: #0a1a3f;
+      --sky: #63c5ea;
       --white: #ffffff;
-      --gray: #f8f9fa;
-      --light-text: #333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom, var(--white), var(--navy-deep));
-      color: var(--light-text);
+      background-color: var(--white);
+      color: var(--navy);
       scroll-behavior: smooth;
     }
 
     header {
-      background: var(--white);
-      padding: 1.2em 2em;
+      background: var(--navy);
+      color: var(--white);
+      padding: 1.5rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #ddd;
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-icon {
-      width: 28px;
-      height: 28px;
-      fill: var(--navy);
-    }
-
     header h1 {
-      color: var(--navy);
-      font-weight: 700;
-      font-size: 1.5rem;
-      margin: 0;
-    }
-
-    nav a {
-      color: var(--light-text);
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
-    }
-
-    nav a:hover {
-      color: var(--royal);
-      text-shadow: 0 0 8px var(--royal);
-    }
-
-    .hero {
-      text-align: center;
-      padding: 100px 20px 40px;
-      background-color: var(--gray);
-    }
-
-    .hero h2 {
-      font-size: 2.8rem;
-      color: var(--navy);
-      margin-bottom: 30px;
-    }
-
-    .info-bubbles {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .bubble {
-      background: var(--white);
-      border: 2px solid var(--navy);
-      border-radius: 12px;
-      padding: 20px;
-      max-width: 250px;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .bubble:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(65, 105, 225, 0.3);
-    }
-
-    .bubble-icon {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    section h3 {
-      color: var(--navy);
-      margin-bottom: 20px;
       font-size: 1.8rem;
     }
 
-    section p {
-      font-size: 1.05rem;
-      color: #222;
+    nav a {
+      margin-left: 2rem;
+      color: var(--sky);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: 0.3s ease;
     }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
+    nav a:hover {
+      color: var(--white);
     }
 
-    .card {
-      background: var(--white);
-      border: 1px solid #ccc;
-      padding: 20px;
-      border-radius: 8px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: var(--sky);
+      left: 0;
+      bottom: -4px;
+      transition: transform 0.3s ease;
+      transform: scaleX(0);
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(65, 105, 225, 0.2);
-      border-color: var(--royal);
+    nav a:hover::after {
+      transform: scaleX(1);
     }
 
-    .contact {
+    .hero {
+      height: 100vh;
+      background: linear-gradient(to bottom right, var(--sky), var(--white));
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      padding: 0 2rem;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--navy);
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .glow-button {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      padding: 1rem 2rem;
+      margin-top: 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      position: relative;
+      transition: 0.3s ease-in-out;
+    }
+
+    .glow-button::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      background: var(--sky);
+      filter: blur(10px);
+      opacity: 0;
+      border-radius: 10px;
+      transition: opacity 0.4s ease-in-out;
+      z-index: -1;
+    }
+
+    .glow-button:hover::after,
+    .glow-button:focus::after {
+      opacity: 0.8;
     }
 
     footer {
       background: var(--navy);
       color: var(--white);
       text-align: center;
-      padding: 20px;
+      padding: 2rem;
       font-size: 0.9rem;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav a {
-        display: block;
-        margin: 10px 0 0;
-      }
-
-      .info-bubbles {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .logo-container {
-        flex-direction: row;
-      }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <div class="logo-container">
-      <!-- DNA Strand SVG (placeholder logo) -->
-      <svg class="logo-icon" viewBox="0 0 24 24">
-        <path d="M17 3a1 1 0 0 0-1 1v.586c-1.72 1.176-3.317 2.718-4.707 4.707C9.317 7.304 7.72 5.762 6 4.586V4a1 1 0 1 0-2 0v1a1 1 0 0 0 .293.707c1.72 1.175 3.317 2.717 4.707 4.707-1.39 1.989-2.987 3.531-4.707 4.707A1 1 0 0 0 4 16v1a1 1 0 1 0 2 0v-.586c1.72-1.175 3.317-2.717 4.707-4.707 1.39 1.989 2.987 3.531 4.707 4.707V17a1 1 0 1 0 2 0v-1a1 1 0 0 0-.293-.707c-1.72-1.176-3.317-2.718-4.707-4.707 1.39-1.989 2.987-3.531 4.707-4.707A1 1 0 0 0 18 5V4a1 1 0 0 0-1-1Z"/>
-      </svg>
-      <h1>Arche Biotechnologies</h1>
-    </div>
+    <h1>Arche Biotechnologies</h1>
     <nav>
       <a href="#about">About</a>
       <a href="#tech">Technology</a>
@@ -196,61 +149,31 @@
     </nav>
   </header>
 
-  <div class="hero">
-    <h2>Innovating Biology for a Better Tomorrow</h2>
-
-    <div class="info-bubbles">
-      <div class="bubble">
-        <div class="bubble-icon">🧬</div>
-        <strong>Precision Science</strong>
-        <p>Tailored biotech solutions backed by rigorous research.</p>
-      </div>
-      <div class="bubble">
-        <div class="bubble-icon">⚙️</div>
-        <strong>AI + Biology</strong>
-        <p>Smart data meets cellular innovation for real-world impact.</p>
-      </div>
-      <div class="bubble">
-        <div class="bubble-icon">❤️</div>
-        <strong>Patient-Centered</strong>
-        <p>Built to support care teams and prevent complications.</p>
-      </div>
-    </div>
-  </div>
-
-  <section id="about">
-    <h3>The Arche System</h3>
-    <p>The Arche System is an innovative fluid monitoring system with sensing devices, known as Care Kits, for continuous bladder irrigation (CBI), gross hematuria detection, secondary IV bags, and urine output. It enables healthcare providers to quantitatively assess and monitor clinically relevant fluid parameters in real-time, enhancing patient safety and care efficiency.</p>
-    <p>Before the System, these were manual, subjective assessments. Our novel system allows Care Kits to sense fluid parameters without direct patient or patient fluid contact. Our advanced notification system enables healthcare providers to receive real-time updates on critical changes in fluid parameters, ensuring providers can prevent common complications.</p>
-    <p>The system design allows for an expansive line of Care Kits that reduce nurse workload burden. We want to empower healthcare providers by giving them the information they need when they need it most.</p>
-  </section>
-
-  <section id="tech">
-    <h3>Our Technologies</h3>
-    <div class="cards">
-      <div class="card">
-        <h4>Genomic Engineering</h4>
-        <p>CRISPR tools for clean, accurate genome editing in complex organisms.</p>
-      </div>
-      <div class="card">
-        <h4>BioAI Analytics</h4>
-        <p>AI-assisted biological data platforms for diagnostics and modeling.</p>
-      </div>
-      <div class="card">
-        <h4>EcoSynth Labs</h4>
-        <p>Low-carbon bio-manufacturing systems for next-gen supply chains.</p>
-      </div>
+  <section class="hero">
+    <div>
+      <h2>Innovating the Future of Medicine</h2>
+      <p>At Arche Biotechnologies, we harness science to redefine possibility.</p>
+      <a href="#about" class="glow-button">Learn More</a>
     </div>
   </section>
 
-  <section id="contact" class="contact">
-    <h3>Contact Us</h3>
-    <p>Email: <a href="mailto:hello@archebio.com" style="color: var(--royal);">hello@archebio.com</a></p>
+  <section class="section" id="about">
+    <h2>About Us</h2>
+    <p>Arche Biotechnologies is a forward-thinking medical startup driven by cutting-edge research and passionate innovation. We focus on precision biotech solutions that make healthcare more effective, accessible, and personalized.</p>
+  </section>
+
+  <section class="section" id="tech">
+    <h2>Our Technology</h2>
+    <p>We specialize in novel therapeutic platforms, smart diagnostics, and AI-powered biological modeling to push the boundaries of modern medicine.</p>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:info@archebio.com">info@archebio.com</a><br>Phone: +1 (555) 123-4567</p>
   </section>
 
   <footer>
-    &copy; 2025 Arche Biotechnologies. Designed for impact. Built with science.
+    &copy; 2025 Arche Biotechnologies. All rights reserved.
   </footer>
-
 </body>
 </html>
