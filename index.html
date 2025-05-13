@@ -35,10 +35,23 @@
       z-index: 1000;
     }
 
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      width: 28px;
+      height: 28px;
+      fill: var(--navy);
+    }
+
     header h1 {
       color: var(--navy);
       font-weight: 700;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
+      margin: 0;
     }
 
     nav a {
@@ -87,6 +100,11 @@
     .bubble:hover {
       transform: translateY(-5px);
       box-shadow: 0 6px 15px rgba(65, 105, 225, 0.3);
+    }
+
+    .bubble-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
     }
 
     section {
@@ -154,13 +172,23 @@
         flex-direction: column;
         align-items: center;
       }
+
+      .logo-container {
+        flex-direction: row;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Arche Biotechnologies</h1>
+    <div class="logo-container">
+      <!-- DNA Strand SVG (placeholder logo) -->
+      <svg class="logo-icon" viewBox="0 0 24 24">
+        <path d="M17 3a1 1 0 0 0-1 1v.586c-1.72 1.176-3.317 2.718-4.707 4.707C9.317 7.304 7.72 5.762 6 4.586V4a1 1 0 1 0-2 0v1a1 1 0 0 0 .293.707c1.72 1.175 3.317 2.717 4.707 4.707-1.39 1.989-2.987 3.531-4.707 4.707A1 1 0 0 0 4 16v1a1 1 0 1 0 2 0v-.586c1.72-1.175 3.317-2.717 4.707-4.707 1.39 1.989 2.987 3.531 4.707 4.707V17a1 1 0 1 0 2 0v-1a1 1 0 0 0-.293-.707c-1.72-1.176-3.317-2.718-4.707-4.707 1.39-1.989 2.987-3.531 4.707-4.707A1 1 0 0 0 18 5V4a1 1 0 0 0-1-1Z"/>
+      </svg>
+      <h1>Arche Biotechnologies</h1>
+    </div>
     <nav>
       <a href="#about">About</a>
       <a href="#tech">Technology</a>
@@ -173,16 +201,19 @@
 
     <div class="info-bubbles">
       <div class="bubble">
+        <div class="bubble-icon">🧬</div>
         <strong>Precision Science</strong>
         <p>Tailored biotech solutions backed by rigorous research.</p>
       </div>
       <div class="bubble">
+        <div class="bubble-icon">⚙️</div>
         <strong>AI + Biology</strong>
         <p>Smart data meets cellular innovation for real-world impact.</p>
       </div>
       <div class="bubble">
-        <strong>Sustainable Tech</strong>
-        <p>Green methods powering future-ready platforms.</p>
+        <div class="bubble-icon">❤️</div>
+        <strong>Patient-Centered</strong>
+        <p>Built to support care teams and prevent complications.</p>
       </div>
     </div>
   </div>
